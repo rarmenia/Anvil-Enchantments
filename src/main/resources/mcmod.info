@@ -1,0 +1,16 @@
+[
+{
+  "modid": "lazAnvils",
+  "name": "Anvil Enchantments",
+  "description": "Craft Enchanted Books in an Anvil!",
+  "version": "1.0.0.0",
+  "mcversion": "1.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [ "lazerzes" ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
