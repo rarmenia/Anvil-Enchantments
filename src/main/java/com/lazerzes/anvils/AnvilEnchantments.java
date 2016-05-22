@@ -15,7 +15,7 @@ public class AnvilEnchantments {
     @EventHandler
     public static void init(FMLInitializationEvent event){
 
-        AnvilRecipes.registerRecipes();
+        AnvilRecipes.registerVanillaEnchantments();
         EventListener listener = new EventListener();
 
     }

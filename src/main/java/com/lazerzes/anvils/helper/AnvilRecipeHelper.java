@@ -1,35 +1,24 @@
 package com.lazerzes.anvils.helper;
 //created by lazerzes
 
+import com.lazerzes.anvils.AnvilRecipe;
 import com.lazerzes.anvils.library.AnvilRecipes;
 import net.minecraft.item.ItemStack;
 
 public class AnvilRecipeHelper {
 
-    public static AnvilRecipes.AnvilRecipe getResult(ItemStack left, ItemStack right){
+   public static AnvilRecipe getResult(AnvilRecipe recipeIn){
 
-        System.out.println("Left: " + left);
-        System.out.println("Right: " + right);
+       for (AnvilRecipe recipe : AnvilRecipes.getRecipes()){
 
-        for(AnvilRecipes.AnvilRecipe recipe : AnvilRecipes.anvilRecipes){
+           if(recipeIn.matchesRecipe(recipe)){
+               return recipe;
+           }
 
-            System.out.println("Rec Left: " + recipe.left);
-            System.out.println("Rec Right: " + recipe.right);
+       }
 
-            if(left.getItem() == recipe.left.getItem() && right.getItem() == recipe.right.getItem()){
+       return null;
 
-                if(left.stackSize == recipe.left.stackSize && right.stackSize == recipe.right.stackSize){
-
-                    return recipe;
-
-                }
-
-            }
-
-        }
-
-        return null;
-
-    }
+   }
 
 }
