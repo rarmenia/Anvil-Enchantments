@@ -1,10 +1,14 @@
 package com.lazerzes.anvils.handler;
 //created by lazerzes
 
-import com.lazerzes.anvils.AnvilRecipe;
-import com.lazerzes.anvils.helper.AnvilRecipeHelper;
+import com.lazerzes.anvils.library.AnvilRecipeLib;
+import com.lazerzes.anvils.util.AnvilRecipe;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventListener {
@@ -16,12 +20,31 @@ public class EventListener {
     @SubscribeEvent
     public void onAnvil(AnvilUpdateEvent event){
 
-        AnvilRecipe result = AnvilRecipeHelper.getResult(new AnvilRecipe(event.getLeft(), event.getRight()));
+        AnvilRecipe eventIn = new AnvilRecipe(event.getLeft(), event.getRight(), event.getOutput(), event.getCost(), false);
 
-        if(result != null){
-            event.setCost(result.getCost());
-            event.setOutput(result.getOutput());
-            return;
+        for(AnvilRecipe recipe : AnvilRecipeLib.getRecipes()){
+
+            if(eventIn.matchesRecipe(recipe)){
+
+                event.setCost(recipe.getCost());
+                event.setOutput(recipe.getOutput());
+                return;
+
+            }
+
+        }
+
+    }
+
+    @SubscribeEvent
+    public void onWorldLoad(WorldEvent.Load loadEvent){
+
+        AnvilRecipeLib.bookHandler.clear();
+
+        for(AnvilRecipe recipe : AnvilRecipeLib.getRecipes()){
+            if(recipe.showInBook){
+                AnvilRecipeLib.bookHandler.add(recipe);
+            }
         }
 
     }
