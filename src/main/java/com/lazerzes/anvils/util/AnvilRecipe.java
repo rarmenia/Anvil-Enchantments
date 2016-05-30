@@ -11,9 +11,9 @@ import net.minecraft.nbt.NBTTagList;
 
 public class AnvilRecipe {
 
-    private ItemStack left, right, output;
-    private int cost;
-    public boolean showInBook;
+    private final ItemStack left, right, output;
+    private final int cost;
+    public final boolean showInBook;
 
     public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, boolean showInBook){
 
@@ -58,11 +58,6 @@ public class AnvilRecipe {
     public ItemStack getRight(){ return right; }
     public ItemStack getOutput(){ return output; }
     public int getCost(){ return cost; }
-
-    public void setLeft(ItemStack left){ this.left = left; }
-    public void setRight(ItemStack right){ this.right = right; }
-    public void setOutput(ItemStack output){ this.output = output; }
-    public void setCost(int cost){ this.cost = cost; }
 
     public boolean matchesRecipe(AnvilRecipe check){
 

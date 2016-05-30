@@ -3,9 +3,6 @@ package com.lazerzes.anvils.handler;
 
 import com.lazerzes.anvils.library.AnvilRecipeLib;
 import com.lazerzes.anvils.util.AnvilRecipe;
-import net.minecraft.init.Enchantments;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -25,9 +22,8 @@ public class EventListener {
         for(AnvilRecipe recipe : AnvilRecipeLib.getRecipes()){
 
             if(eventIn.matchesRecipe(recipe)){
-
                 event.setCost(recipe.getCost());
-                event.setOutput(recipe.getOutput());
+                event.setOutput(recipe.getOutput().copy());
                 return;
 
             }
