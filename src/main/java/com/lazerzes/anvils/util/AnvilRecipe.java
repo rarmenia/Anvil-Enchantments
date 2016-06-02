@@ -5,9 +5,14 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemEnchantedBook;
+import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionUtils;
+
+import java.util.List;
 
 public class AnvilRecipe {
 
@@ -73,6 +78,16 @@ public class AnvilRecipe {
 
         if(a == null || b == null){
             return false;
+        }
+
+        if(a.getItem() == b.getItem() && a.getItem() instanceof ItemPotion){
+            List<PotionEffect> aEffects = PotionUtils.getEffectsFromStack(a);
+            List<PotionEffect> bEffects = PotionUtils.getEffectsFromStack(b);
+            if(aEffects.containsAll(bEffects)){
+                return true;
+            }else{
+                return false;
+            }
         }
 
         if(a.getItem() == b.getItem() && a.getMetadata() == b.getMetadata()) {

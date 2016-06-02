@@ -45,9 +45,11 @@ public class AnvilRecipeLib {
 
         //Aqua Affinity
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water)), Enchantments.aquaAffinity, 1, cheap, true));
+        System.out.println(new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water)));
 
         //Respiration
         addRecipe( new AnvilRecipe(Enchantments.aquaAffinity, 1, new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water_breathing)), Enchantments.respiration, 1, cheap, true));
+        System.out.println(new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water_breathing)));
 
         //Depth Strider
         addRecipe( new AnvilRecipe(Enchantments.aquaAffinity, 1, new ItemStack(Blocks.ice, 8), Enchantments.respiration, 1, mid, true));
