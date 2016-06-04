@@ -38,18 +38,16 @@ public class AnvilRecipeLib {
         addRecipe( new AnvilRecipe(Enchantments.protection, 1, new ItemStack(Blocks.cactus, 6), Enchantments.thorns, 1, cheap, true));
 
         //Frost Walker
-        addRecipe( new AnvilRecipe(book, new ItemStack(Blocks.ice,41), Enchantments.frostWalker, 1, mid, true));
+        addRecipe( new AnvilRecipe(book, new ItemStack(Blocks.ice,4), Enchantments.frostWalker, 1, mid, true));
 
         //Feather Falling
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.feather, 8), Enchantments.featherFalling, 1, cheap, true));
 
         //Aqua Affinity
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water)), Enchantments.aquaAffinity, 1, cheap, true));
-        System.out.println(new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water)));
 
         //Respiration
         addRecipe( new AnvilRecipe(Enchantments.aquaAffinity, 1, new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water_breathing)), Enchantments.respiration, 1, cheap, true));
-        System.out.println(new ItemStack(Items.potionitem, 1, PotionType.getID(PotionTypes.water_breathing)));
 
         //Depth Strider
         addRecipe( new AnvilRecipe(Enchantments.aquaAffinity, 1, new ItemStack(Blocks.ice, 8), Enchantments.respiration, 1, mid, true));
@@ -58,7 +56,7 @@ public class AnvilRecipeLib {
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.quartz, 8), Enchantments.sharpness, 1, cheap, true));
 
         //Power
-        addRecipe( new AnvilRecipe(Enchantments.sharpness, 1, new ItemStack(Items.arrow, 4), Enchantments.power, 1, super_cheap, true));
+        addRecipe( new AnvilRecipe(Enchantments.knockback, 1, new ItemStack(Items.arrow, 4), Enchantments.power, 1, super_cheap, true));
 
         //Smite
         addRecipe( new AnvilRecipe(Enchantments.sharpness, 1, new ItemStack(Items.splash_potion, 1, PotionType.getID(PotionTypes.healing)), Enchantments.smite, 1, super_cheap, true));
@@ -97,13 +95,13 @@ public class AnvilRecipeLib {
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.ghast_tear, 3), Enchantments.silkTouch, 1, mid, true));
 
         //Unbreaking
-        addRecipe( new AnvilRecipe(book, new ItemStack(Blocks.obsidian, 4), Enchantments.unbreaking, 1, mid, true));
+        addRecipe( new AnvilRecipe(book, new ItemStack(Blocks.obsidian, 3), Enchantments.unbreaking, 1, mid, true));
 
         //Infinity
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.arrow, 64), Enchantments.infinity, 1, expensive, true));
 
         //Mending
-        addRecipe( new AnvilRecipe(book, new ItemStack(Items.golden_apple, 4), Enchantments.mending, 1, expensive, true));
+        addRecipe( new AnvilRecipe(book, new ItemStack(Items.golden_apple, 3), Enchantments.mending, 1, expensive, true));
 
     }
 
