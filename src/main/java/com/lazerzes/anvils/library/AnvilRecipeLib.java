@@ -56,7 +56,7 @@ public class AnvilRecipeLib {
         addRecipe( new AnvilRecipe(book, new ItemStack(Items.quartz, 8), Enchantments.sharpness, 1, cheap, true));
 
         //Power
-        addRecipe( new AnvilRecipe(Enchantments.knockback, 1, new ItemStack(Items.arrow, 4), Enchantments.power, 1, super_cheap, true));
+        addRecipe( new AnvilRecipe(Enchantments.efficiency, 1, new ItemStack(Items.arrow, 4), Enchantments.power, 1, super_cheap, true));
 
         //Smite
         addRecipe( new AnvilRecipe(Enchantments.sharpness, 1, new ItemStack(Items.splash_potion, 1, PotionType.getID(PotionTypes.healing)), Enchantments.smite, 1, super_cheap, true));
