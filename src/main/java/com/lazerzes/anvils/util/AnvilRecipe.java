@@ -31,9 +31,9 @@ public class AnvilRecipe {
     }
 
     public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showInBook){
-
-        ItemStack output = new ItemStack(Items.enchanted_book, 1);
-        Items.enchanted_book.addEnchantment(output, new EnchantmentData(out, enchantLevel));
+        
+        ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
+        Items.ENCHANTED_BOOK.addEnchantment(output, new EnchantmentData(out, enchantLevel));
 
         this.left = left;
         this.right = right;
@@ -45,11 +45,11 @@ public class AnvilRecipe {
 
     public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showInBook){
 
-        ItemStack left = new ItemStack(Items.enchanted_book, 1);
-        Items.enchanted_book.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
+        ItemStack left = new ItemStack(Items.ENCHANTED_BOOK, 1);
+        Items.ENCHANTED_BOOK.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
 
-        ItemStack output = new ItemStack(Items.enchanted_book, 1);
-        Items.enchanted_book.addEnchantment(output, new EnchantmentData(out, enchantLevel));
+        ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
+        Items.ENCHANTED_BOOK.addEnchantment(output, new EnchantmentData(out, enchantLevel));
 
         this.left = left;
         this.right = right;
@@ -95,7 +95,7 @@ public class AnvilRecipe {
             if(a.stackSize == b.stackSize){
 
                 if(a.getItem() instanceof ItemEnchantedBook){
-                    NBTTagList aEnchants = Items.enchanted_book.getEnchantments(a), bEnchants = Items.enchanted_book.getEnchantments(b);
+                    NBTTagList aEnchants = Items.ENCHANTED_BOOK.getEnchantments(a), bEnchants = Items.ENCHANTED_BOOK.getEnchantments(b);
 
                     if(aEnchants == null || bEnchants == null){
                         return false;
