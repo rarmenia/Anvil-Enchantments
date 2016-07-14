@@ -3,8 +3,8 @@ package com.lazerzes.anvils.library;
 
 public class MiscLib {
 
-    public static final String MOD_ID = "lazAnvils";
+    public static final String MOD_ID = "@MOD_ID@";
     public static final String MOD_NAME = "Anvil Enchantments";
-    public static final String MOD_VERSION = "1.2.1.3";
+    public static final String MOD_VERSION = "@MOD_VERSION@";
 
 }

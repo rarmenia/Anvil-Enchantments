@@ -2,9 +2,8 @@ package com.lazerzes.anvils;
 //created by lazerzes
 
 import com.lazerzes.anvils.handler.EventListener;
-import com.lazerzes.anvils.library.AnvilRecipeLib;
+import com.lazerzes.anvils.api.AnvilRecipes;
 import com.lazerzes.anvils.library.MiscLib;
-import com.lazerzes.anvils.util.AnvilRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.*;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -15,7 +14,7 @@ public class AnvilEnchantments {
     @EventHandler
     public static void init(FMLInitializationEvent event){
 
-        AnvilRecipeLib.registerVanillaEnchantmentRecipes();
+        AnvilRecipes.registerVanillaEnchantmentRecipes();
         EventListener listener = new EventListener();
 
     }

@@ -21,15 +21,18 @@ plugins {
 }
 */
 version = "${mc_version}-${mod_version}"
-group= package_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = mod_name
+group= "com.lazerzes.${mod_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = mod_id
 
 minecraft {
     version = "${mc_version}-${forge_version}"
     runDir = "run"
 
-    replace "@VERSION@", project.version
-    replaceIn "Constants.java"
+    replace '@MOD_VERSION@', project.mod_version
+    replaceIn 'MiscLib.java'
+
+    replace '@MOD_ID@', project.archivesBaseName
+    replaceIn 'MiscLib.java'
 
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
@@ -64,22 +67,21 @@ dependencies {
 
 }
 
-processResources
-{
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
+processResources {
     from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
+        include '**/*.info'
+        include '**/*.properties'
 
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        // replaces
+        expand ([
+            'mod_id': project.archivesBaseName,
+            'mod_version': project.mod_version,
+            'minecraft_version': mc_version
+        ])
     }
 
-    // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        exclude '**/*.info'
+        exclude '**/*.properties'
     }
 }

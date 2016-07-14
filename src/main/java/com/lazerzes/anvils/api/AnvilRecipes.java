@@ -1,7 +1,7 @@
-package com.lazerzes.anvils.library;
+package com.lazerzes.anvils.api;
 //created by lazerzes
 
-import com.lazerzes.anvils.util.AnvilRecipe;
+import com.lazerzes.anvils.api.AnvilRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
@@ -12,10 +12,10 @@ import net.minecraft.potion.PotionType;
 
 import java.util.ArrayList;
 
-public class AnvilRecipeLib {
+public class AnvilRecipes {
 
     private static ArrayList<AnvilRecipe> recipes = new ArrayList<AnvilRecipe>();
-    public static ArrayList<AnvilRecipe> bookHandler = new ArrayList<AnvilRecipe>();
+    //public static ArrayList<AnvilRecipe> bookHandler = new ArrayList<AnvilRecipe>();
 
     public static void registerVanillaEnchantmentRecipes(){
 
