@@ -4,11 +4,19 @@ package com.lazerzes.anvils;
 import com.lazerzes.anvils.handler.EventListener;
 import com.lazerzes.anvils.api.AnvilRecipes;
 import com.lazerzes.anvils.library.MiscLib;
+import com.lazerzes.anvils.util.NBTHelper;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.*;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = MiscLib.MOD_ID, name = MiscLib.MOD_NAME, version = MiscLib.MOD_VERSION)
 public class AnvilEnchantments {
@@ -60,7 +68,29 @@ public class AnvilEnchantments {
 
         AnvilRecipes.registerVanillaEnchantmentRecipes();
         EventListener listener = new EventListener();
-
+        
+//        addInstructionBookRecipe();
     }
+    
+
+    //I tried to add a manual. But every time i craft it, says "Invalid data tag", im sure the solution is something similar
+    // so ill leave the code in case you want to tweak it
+    
+//    private static void addInstructionBookRecipe() {
+////http://www.minecraftforge.net/forum/index.php?topic=31933.0
+//        ItemStack manual = new ItemStack(Items.WRITTEN_BOOK);
+//
+//        NBTTagCompound tags = NBTHelper.getNBT(manual);
+//        
+//        tags.setString("author", "Lazerzes");
+//        tags.setString("title", "Anvil Enchants");
+//       NBTTagList pages = new NBTTagList();
+//       pages.appendTag(new NBTTagString( "This is page 1"));
+
+//       tags.setTag("pages", pages);
+//      
+//        
+//        GameRegistry.addShapelessRecipe(manual, Items.BOOK,Blocks.ANVIL);
+//    }
 
 }
