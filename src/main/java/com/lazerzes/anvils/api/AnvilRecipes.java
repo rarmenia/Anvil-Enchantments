@@ -19,33 +19,33 @@ public class AnvilRecipes {
 
     static int super_cheap = 3, cheap = 5, mid = 10, expensive = 15;
     public static class Levels{
-        public static int protection = cheap;
-        public static int fireProtection = super_cheap;
-        public static int blastProtection = super_cheap;
-        public static int projProtection = super_cheap;
-        public static int thorns = cheap;
-        public static int frostWalker = mid;
-        public static int featherFalling = cheap;
-        public static int aquaAffinity = cheap;
-        public static int waterBreathing = cheap;
-        public static int depthStrider =  mid;
-        public static int sharpness = cheap;
-        public static int power = super_cheap;
-        public static int smite = super_cheap;
-        public static int arthropods = super_cheap;
-        public static int fireAspect = super_cheap;
-        public static int flame = super_cheap;
+        public static int protection ;
+        public static int fireProtection ;
+        public static int blastProtection ;
+        public static int projProtection ;
+        public static int thorns ;
+        public static int frostWalker ;
+        public static int featherFalling ;
+        public static int aquaAffinity ;
+        public static int waterBreathing ;
+        public static int depthStrider ;
+        public static int sharpness ;
+        public static int power ;
+        public static int smite ;
+        public static int arthropods;
+        public static int fireAspect;
+        public static int flame;
         public static int knockback;
-        public static int punch = super_cheap;
-        public static int fortune = mid;
-        public static int looting = super_cheap;
-        public static int luckOfSea = super_cheap;
-        public static int efficiency = cheap;
-        public static int lure = super_cheap;
-        public static int silkTouch = mid;
-        public static int unbreaking = mid;
-        public static int infinity = expensive;
-        public static int mending = expensive;
+        public static int punch ;
+        public static int fortune ;
+        public static int looting ;
+        public static int luckOfSea ;
+        public static int efficiency ;
+        public static int lure ;
+        public static int silkTouch ;
+        public static int unbreaking ;
+        public static int infinity ;
+        public static int mending ;
     }
 
     public static void registerVanillaEnchantmentRecipes(){

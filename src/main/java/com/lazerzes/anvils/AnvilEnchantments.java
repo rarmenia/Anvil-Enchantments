@@ -21,9 +21,35 @@ public class AnvilEnchantments {
         config.load();
         int super_cheap = 3, cheap = 5, mid = 10, expensive = 15;
         int minValue = -1, maxValue = 99;
-        String category = MiscLib.MOD_ID;
-        String comment = "Level required to add enchantmet with the item; set -1 to disable completely";
+        String category = MiscLib.MOD_NAME;
+        String comment = "Level required to add enchantment with the item; set -1 to disable completely";
         AnvilRecipes.Levels.protection = config.getInt("protection", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.fireProtection = config.getInt("fireProtection", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.blastProtection = config.getInt("blastProtection", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.projProtection = config.getInt("projProtection", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.thorns = config.getInt("thorns", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.frostWalker = config.getInt("frostWalker", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.featherFalling = config.getInt("featherFalling", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.aquaAffinity = config.getInt("aquaAffinity", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.waterBreathing = config.getInt("waterBreathing", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.depthStrider = config.getInt("depthStrider", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.sharpness = config.getInt("sharpness", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.power = config.getInt("power", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.smite = config.getInt("smite", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.arthropods = config.getInt("arthropods", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.fireAspect = config.getInt("fireAspect", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.flame = config.getInt("flame", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.knockback = config.getInt("knockback", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.punch = config.getInt("punch", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.fortune = config.getInt("fortune", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.looting = config.getInt("looting", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.luckOfSea = config.getInt("luckOfSea", category, super_cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.efficiency = config.getInt("efficiency", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.lure = config.getInt("lure", category, cheap, minValue, maxValue, comment);
+        AnvilRecipes.Levels.silkTouch = config.getInt("silkTouch", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.unbreaking = config.getInt("unbreaking", category, mid, minValue, maxValue, comment);
+        AnvilRecipes.Levels.infinity = config.getInt("infinity", category, expensive, minValue, maxValue, comment);
+        AnvilRecipes.Levels.mending = config.getInt("mending", category, expensive, minValue, maxValue, comment);
         
         
         config.save();
