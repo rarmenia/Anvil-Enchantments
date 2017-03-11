@@ -5,17 +5,13 @@ import com.lazerzes.anvils.api.AnvilRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionType;
-
 import java.util.ArrayList;
 
 public class AnvilRecipes {
 
     private static ArrayList<AnvilRecipe> recipes = new ArrayList<AnvilRecipe>();
-    //public static ArrayList<AnvilRecipe> bookHandler = new ArrayList<AnvilRecipe>();
 
     static int super_cheap = 3, cheap = 5, mid = 10, expensive = 15;
     public static class Levels{
@@ -81,12 +77,12 @@ public class AnvilRecipes {
           addRecipe( new AnvilRecipe(book, new ItemStack(Items.FEATHER, 8), Enchantments.FEATHER_FALLING, 1, Levels.featherFalling, true));
 
         //Aqua Affinity
-        if(Levels.aquaAffinity >= 0)
-          addRecipe( new AnvilRecipe(book, new ItemStack(Items.POTIONITEM, 1, PotionType.getID(PotionTypes.WATER)), Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
-
+        if(Levels.aquaAffinity >= 0){
+          addRecipe( new AnvilRecipe(book, new ItemStack(Items.POTIONITEM), Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
+        }
         //Respiration
         if(Levels.waterBreathing >= 0)
-          addRecipe( new AnvilRecipe(Enchantments.AQUA_AFFINITY, 1, new ItemStack(Items.POTIONITEM, 1, PotionType.getID(PotionTypes.WATER_BREATHING)), Enchantments.RESPIRATION, 1, Levels.waterBreathing, true));
+          addRecipe( new AnvilRecipe(Enchantments.AQUA_AFFINITY, 1, new ItemStack(Items.PRISMARINE_SHARD), Enchantments.RESPIRATION, 1, Levels.waterBreathing, true));
 
         //Depth Strider
         if(Levels.depthStrider >= 0)
@@ -102,7 +98,7 @@ public class AnvilRecipes {
 
         //Smite
         if(Levels.smite >= 0)
-          addRecipe( new AnvilRecipe(Enchantments.SHARPNESS, 1, new ItemStack(Items.SPLASH_POTION, 1, PotionType.getID(PotionTypes.HEALING)), Enchantments.SMITE, 1, Levels.smite , true));
+          addRecipe( new AnvilRecipe(Enchantments.SHARPNESS, 1, new ItemStack(Items.SPECKLED_MELON), Enchantments.SMITE, 1, Levels.smite , true));
 
         //Bane of Arthropods
         if(Levels.arthropods >= 0)

@@ -4,14 +4,12 @@ import com.lazerzes.anvils.util.NBTHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Items;
-import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 
 import java.util.List;
@@ -70,16 +68,16 @@ public class AnvilRecipe {
     }
 
     public boolean hasInvalid(){
+//
+//        if(this == null){
+//            return true;
+//        }
 
-        if(this == null){
+        if(this.left == ItemStack.EMPTY || this.left.getCount() <= 0){
             return true;
         }
 
-        if(this.left == null || this.left.stackSize <= 0){
-            return true;
-        }
-
-        if(this.right == null || this.right.stackSize <= 0){
+        if(this.right == ItemStack.EMPTY || this.right.getCount() <= 0){
             return true;
         }
 
@@ -93,11 +91,11 @@ public class AnvilRecipe {
 
     public boolean doItemStacksMatch(AnvilRecipe other){
 
-        if(this.left.getItem() != other.left.getItem() || this.left.stackSize != other.left.stackSize) {
+        if(this.left.getItem() != other.left.getItem() || this.left.getCount() != other.left.getCount()) {
             return false;
         }
 
-        if(this.right.getItem() != other.right.getItem() || this.right.stackSize != other.right.stackSize){
+        if(this.right.getItem() != other.right.getItem() || this.right.getCount() != other.right.getCount()){
             return false;
         }
 
