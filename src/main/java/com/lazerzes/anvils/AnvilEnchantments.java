@@ -61,6 +61,7 @@ public class AnvilEnchantments {
         
         
         config.save();
+
     }
 
     @EventHandler
@@ -68,29 +69,8 @@ public class AnvilEnchantments {
 
         AnvilRecipes.registerVanillaEnchantmentRecipes();
         EventListener listener = new EventListener();
-        
-//        addInstructionBookRecipe();
+
     }
-    
 
-    //I tried to add a manual. But every time i craft it, says "Invalid data tag", im sure the solution is something similar
-    // so ill leave the code in case you want to tweak it
-    
-//    private static void addInstructionBookRecipe() {
-////http://www.minecraftforge.net/forum/index.php?topic=31933.0
-//        ItemStack manual = new ItemStack(Items.WRITTEN_BOOK);
-//
-//        NBTTagCompound tags = NBTHelper.getNBT(manual);
-//        
-//        tags.setString("author", "Lazerzes");
-//        tags.setString("title", "Anvil Enchants");
-//       NBTTagList pages = new NBTTagList();
-//       pages.appendTag(new NBTTagString( "This is page 1"));
-
-//       tags.setTag("pages", pages);
-//      
-//        
-//        GameRegistry.addShapelessRecipe(manual, Items.BOOK,Blocks.ANVIL);
-//    }
 
 }

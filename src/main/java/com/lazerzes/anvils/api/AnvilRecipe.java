@@ -18,19 +18,19 @@ public class AnvilRecipe {
 
     public ItemStack left, right, output;
     private final int cost;
-    boolean showInBook;
+    public boolean showRecipe;
 
-    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, boolean showInBook){
+    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, boolean showRecipe){
 
         this.left = left;
         this.right = right;
         this.output = output;
         this.cost = cost;
-        this.showInBook = showInBook;
+        this.showRecipe = showRecipe;
 
     }
 
-    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showInBook){
+    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showRecipe){
 
         ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
         Items.ENCHANTED_BOOK.addEnchantment(output, new EnchantmentData(out, enchantLevel));
@@ -39,11 +39,11 @@ public class AnvilRecipe {
         this.right = right;
         this.output = output;
         this.cost = cost;
-        this.showInBook = showInBook;
+        this.showRecipe = showRecipe;
 
     }
 
-    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showInBook){
+    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showRecipe){
 
         ItemStack left = new ItemStack(Items.ENCHANTED_BOOK, 1);
         Items.ENCHANTED_BOOK.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
@@ -55,7 +55,7 @@ public class AnvilRecipe {
         this.right = right;
         this.output = output;
         this.cost = cost;
-        this.showInBook = showInBook;
+        this.showRecipe = showRecipe;
 
     }
 

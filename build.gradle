@@ -15,7 +15,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "${mc_version}-${mod_version}"
-group= "com.lazerzes.${mod_id}" 
+group= "com.lazerzes.${mod_id}"
 archivesBaseName = "AnvilEnchantments"
 
 minecraft {
@@ -32,8 +32,16 @@ minecraft {
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories{
+    maven{
+      url = "http://dvs1.progwml6.com/files/maven"
+    }
+}
+
 dependencies {
-   
+
+    deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
+    runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 
 }
 
