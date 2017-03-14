@@ -1,22 +1,21 @@
 package com.lazerzes.anvils;
 //created by lazerzes
 
+import com.lazerzes.anvils.api.AnvilRecipe;
 import com.lazerzes.anvils.handler.EventListener;
 import com.lazerzes.anvils.api.AnvilRecipes;
 import com.lazerzes.anvils.library.MiscLib;
-import com.lazerzes.anvils.util.NBTHelper;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
+import net.minecraft.item.ItemStack;;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.*;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = MiscLib.MOD_ID, name = MiscLib.MOD_NAME, version = MiscLib.MOD_VERSION)
 public class AnvilEnchantments {
@@ -69,7 +68,22 @@ public class AnvilEnchantments {
 
         AnvilRecipes.registerVanillaEnchantmentRecipes();
         EventListener listener = new EventListener();
+        final CreativeTabs TAB_ANV = new CreativeTabs(MiscLib.MOD_ID) {
+            @Override
+            public ItemStack getTabIconItem() {
+                return new ItemStack(Blocks.ANVIL, 1);
+            }
 
+            @Override
+            @SideOnly(Side.CLIENT)
+            public void displayAllRelevantItems(NonNullList<ItemStack> dispList){
+                for(AnvilRecipe r : AnvilRecipes.getRecipes()){
+                    dispList.add(r.getOutput());
+                }
+            }
+
+
+        };
     }
 
 
