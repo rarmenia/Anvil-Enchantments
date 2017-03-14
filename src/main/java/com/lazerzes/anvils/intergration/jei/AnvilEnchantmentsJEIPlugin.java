@@ -2,7 +2,6 @@ package com.lazerzes.anvils.intergration.jei;
 
 import com.lazerzes.anvils.api.AnvilRecipe;
 import com.lazerzes.anvils.api.AnvilRecipes;
-import com.sun.istack.internal.NotNull;
 import mezz.jei.api.*;
 
 
@@ -14,7 +13,7 @@ import java.util.Collections;
 public class AnvilEnchantmentsJEIPlugin extends BlankModPlugin{
 
     @Override
-    public void register(@NotNull IModRegistry registry){
+    public void register(IModRegistry registry){
 
         ArrayList<AnvilRecipe> internal = AnvilRecipes.getRecipes();
 
