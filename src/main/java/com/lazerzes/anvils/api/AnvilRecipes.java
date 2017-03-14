@@ -5,8 +5,13 @@ import com.lazerzes.anvils.api.AnvilRecipe;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 
 import java.util.ArrayList;
 
@@ -47,6 +52,9 @@ public class AnvilRecipes {
     public static void registerVanillaEnchantmentRecipes(){
 
         ItemStack book = new ItemStack(Items.BOOK, 1);
+        ItemStack waterPotion = new ItemStack(Items.POTIONITEM, 1);
+        PotionUtils.addPotionToItemStack(waterPotion, PotionTypes.WATER);
+
 
         //Protection
         if( Levels.protection >= 0)
@@ -78,7 +86,7 @@ public class AnvilRecipes {
 
         //Aqua Affinity
         if(Levels.aquaAffinity >= 0){
-          addRecipe( new AnvilRecipe(book, Items.POTIONITEM.getDefaultInstance(), Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
+          addRecipe( new AnvilRecipe(book, waterPotion, Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
         }
         //Respiration
         if(Levels.waterBreathing >= 0)
