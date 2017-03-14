@@ -6,7 +6,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+
 import java.util.ArrayList;
 
 public class AnvilRecipes {
@@ -78,7 +81,7 @@ public class AnvilRecipes {
 
         //Aqua Affinity
         if(Levels.aquaAffinity >= 0){
-          addRecipe( new AnvilRecipe(book, new ItemStack(Items.POTIONITEM), Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
+          addRecipe( new AnvilRecipe(book, Items.POTIONITEM.getDefaultInstance(), Enchantments.AQUA_AFFINITY, 1, Levels.aquaAffinity, true));
         }
         //Respiration
         if(Levels.waterBreathing >= 0)
