@@ -1,4 +1,4 @@
-# Anvil-Enchantments [![](http://cf.way2muchnoise.eu/245332.svg)](https://minecraft.curseforge.com/projects/anvil-enchantments) [![](http://cf.way2muchnoise.eu/versions/245332.svg)](https://minecraft.curseforge.com/projects/anvil-enchantments)
+# Anvil Enchantments [![](http://cf.way2muchnoise.eu/245332.svg)](https://minecraft.curseforge.com/projects/anvil-enchantments) [![](http://cf.way2muchnoise.eu/versions/245332.svg)](https://minecraft.curseforge.com/projects/anvil-enchantments)
 A minecraft mod that manages custom Anvil Recipes.
 
 Adds the ability to craft custom books.
