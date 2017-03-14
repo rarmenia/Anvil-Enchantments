@@ -6,9 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 
 import java.util.ArrayList;
 
@@ -16,7 +14,6 @@ public class AnvilRecipes {
 
     private static ArrayList<AnvilRecipe> recipes = new ArrayList<AnvilRecipe>();
 
-    static int super_cheap = 3, cheap = 5, mid = 10, expensive = 15;
     public static class Levels{
         public static int protection ;
         public static int fireProtection ;
