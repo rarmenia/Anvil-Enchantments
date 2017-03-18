@@ -30,7 +30,7 @@ catchError() {
         withDockerContainer('openjdk:8-jdk') {
             stage("Build") {
                 sh """set -x
-                      ./gradlew build -x test
+                      ./gradlew build
                    """
 
                 archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true, onlyIfSuccessful: true
