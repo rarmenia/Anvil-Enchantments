@@ -165,6 +165,8 @@ public class AnvilRecipes {
           addRecipe( new AnvilRecipe(book, new ItemStack(Items.GOLDEN_APPLE, 3), Enchantments.MENDING, 1, Levels.mending, true));
 
     }
+    
+
 
     public static void addRecipe(AnvilRecipe recipeToAdd){
         recipes.add(recipeToAdd);

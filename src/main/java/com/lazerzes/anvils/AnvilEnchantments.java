@@ -4,26 +4,37 @@ package com.lazerzes.anvils;
 import com.lazerzes.anvils.api.AnvilRecipe;
 import com.lazerzes.anvils.handler.EventListener;
 import com.lazerzes.anvils.api.AnvilRecipes;
+import com.lazerzes.anvils.api.AnvilRecipes.Levels;
 import com.lazerzes.anvils.library.MiscLib;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;;
+import net.minecraft.init.Enchantments;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.*;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = MiscLib.MOD_ID, name = MiscLib.MOD_NAME, version = MiscLib.MOD_VERSION)
 public class AnvilEnchantments {
-
+  
+  
+    private static String[] recipeTable;
 
     private static Configuration config;
     @EventHandler
     public void onPreInit(FMLPreInitializationEvent event) {
+      
+      
         config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
         int super_cheap = 3, cheap = 5, mid = 10, expensive = 15;
@@ -57,7 +68,13 @@ public class AnvilEnchantments {
         AnvilRecipes.Levels.unbreaking = config.getInt("unbreaking", category, mid, minValue, maxValue, comment);
         AnvilRecipes.Levels.infinity = config.getInt("infinity", category, expensive, minValue, maxValue, comment);
         AnvilRecipes.Levels.mending = config.getInt("mending", category, expensive, minValue, maxValue, comment);
+
+        String[] def = new String[]{};//"cyclicmagic:launch-17-minecraft:soulsand"
         
+        recipeTable = config.getStringList("ModRecipes", MiscLib.MOD_NAME, def, "Add recipes for modded enchantments.  For example: cyclicmagic:launch-17-minecraft:soulsand-5");
+        
+        
+       
         
         config.save();
 
@@ -84,6 +101,62 @@ public class AnvilEnchantments {
 
 
         };
+    }
+
+    @EventHandler
+    public static void init(FMLPostInitializationEvent event){
+      //this should fire after other mods have loaded their resources/items/enchantments.
+      loadExternalRecipes();   
+    }
+
+
+    private static void loadExternalRecipes() {
+
+
+//proof of concept that this works
+//      Enchantment flame =  Enchantment.REGISTRY.getObject(new ResourceLocation("minecraft:flame"));
+//        System.out.println("flame "+flame);
+
+      
+     
+      String enchantResource;
+      String levelToParse;//parse this
+      String itemResource;
+      String quantityToParse;//parse this
+      
+      String[] parseWIP;
+      
+      for(String entry : recipeTable){
+        if(entry == null || entry.isEmpty()){continue;}
+        
+        parseWIP = entry.split("-");
+        if(parseWIP.length < 4){
+          System.out.println("Invalid Config entry: "+entry);
+          continue;
+        }
+        
+        enchantResource = parseWIP[0];
+        levelToParse = parseWIP[1];
+        itemResource = parseWIP[2];
+        quantityToParse = parseWIP[1];
+        
+        try{
+          
+          Enchantment modEnchant = Enchantment.REGISTRY.getObject(new ResourceLocation(enchantResource));
+          int xpLevels = Integer.parseInt(levelToParse);
+          Item item = Item.getByNameOrId(itemResource);
+          int quantity = Integer.parseInt(quantityToParse);
+          
+          AnvilRecipes.addRecipe(new AnvilRecipe( new ItemStack(Items.BOOK), 
+              new ItemStack(item, quantity), modEnchant, 1, xpLevels, true));
+          
+          
+        }
+        catch(Exception e){
+          e.printStackTrace();
+          System.out.println("Invalid Config entry: "+entry);
+        }
+      }
     }
 
 
