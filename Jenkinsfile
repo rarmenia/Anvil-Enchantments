@@ -29,6 +29,7 @@ catchError() {
 
             stage("Build") {
                 sh """set -x
+                      chmod +x gradlew
                       ./gradlew build -x test
                    """
 
