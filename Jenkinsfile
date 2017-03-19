@@ -27,14 +27,13 @@ catchError() {
 
         milestone label: 'Checkout complete'
 
-        withDockerContainer('openjdk:8-jdk') {
             stage("Build") {
                 sh """set -x
-                      ./gradlew build
+                      ./gradlew build -x test
                    """
 
                 archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true, onlyIfSuccessful: true
-            }
+           
             
             milestone label: 'Build complete'
             
