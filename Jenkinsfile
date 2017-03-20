@@ -38,20 +38,6 @@ catchError() {
             
             milestone label: 'Build complete'
             
-            stage("Test") {
-                try {
-                    sh """set -x
-                          ./gradlew clean test
-                       """
-
-                    step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/TEST-*.xml'])
-                } catch (e) {
-                    currentBuild.result = "UNSTABLE"
-                    echo "Exception caught while running test: ${e}"
-                }
-            }
-            
-            milestone label: 'Test complete'
         }
     }
 } // catchError()
