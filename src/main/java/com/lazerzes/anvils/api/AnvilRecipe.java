@@ -4,6 +4,7 @@ import com.lazerzes.anvils.util.NBTHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
@@ -33,7 +34,7 @@ public class AnvilRecipe {
     public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showRecipe){
 
         ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
-        Items.ENCHANTED_BOOK.addEnchantment(output, new EnchantmentData(out, enchantLevel));
+        ItemEnchantedBook.addEnchantment(output, new EnchantmentData(out, enchantLevel));
 
         this.left = left;
         this.right = right;
@@ -46,10 +47,10 @@ public class AnvilRecipe {
     public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean showRecipe){
 
         ItemStack left = new ItemStack(Items.ENCHANTED_BOOK, 1);
-        Items.ENCHANTED_BOOK.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
+        ItemEnchantedBook.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
 
         ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
-        Items.ENCHANTED_BOOK.addEnchantment(output, new EnchantmentData(out, enchantLevel));
+        ItemEnchantedBook.addEnchantment(output, new EnchantmentData(out, enchantLevel));
 
         this.left = left;
         this.right = right;
@@ -134,7 +135,7 @@ public class AnvilRecipe {
             //Enchanted Book Special Handler Left
             if(this.left.getItem() instanceof ItemEnchantedBook){
 
-                NBTTagList enchListA = Items.ENCHANTED_BOOK.getEnchantments(this.left), enchListB = Items.ENCHANTED_BOOK.getEnchantments(other.left);
+                NBTTagList enchListA = ItemEnchantedBook.getEnchantments(this.left), enchListB = ItemEnchantedBook.getEnchantments(other.left);
                 if(!enchListA.equals(enchListB)){
                     return false;
                 }
@@ -144,7 +145,7 @@ public class AnvilRecipe {
             //Enchanted Book Special Handler Right
             if(this.right.getItem() instanceof ItemEnchantedBook){
 
-                NBTTagList enchListA = Items.ENCHANTED_BOOK.getEnchantments(this.right), enchListB = Items.ENCHANTED_BOOK.getEnchantments(other.right);
+                NBTTagList enchListA = ItemEnchantedBook.getEnchantments(this.right), enchListB = ItemEnchantedBook.getEnchantments(other.right);
                 if(!enchListA.equals(enchListB)){
                     return false;
                 }
@@ -195,7 +196,7 @@ public class AnvilRecipe {
     public static ItemStack getEnchantedBook(Enchantment enchIn, int levelIn){
 
         ItemStack enchBook = new ItemStack(Items.ENCHANTED_BOOK, 1);
-        Items.ENCHANTED_BOOK.addEnchantment(enchBook, new EnchantmentData(enchIn, levelIn));
+        ItemEnchantedBook.addEnchantment(enchBook, new EnchantmentData(enchIn, levelIn));
 
         return enchBook;
 

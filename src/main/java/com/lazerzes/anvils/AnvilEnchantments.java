@@ -7,7 +7,7 @@ import com.lazerzes.anvils.api.AnvilRecipes;
 import com.lazerzes.anvils.library.MiscLib;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
