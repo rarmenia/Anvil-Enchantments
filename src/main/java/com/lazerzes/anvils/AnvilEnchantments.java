@@ -27,12 +27,12 @@ public class AnvilEnchantments {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         configDir = new File(event.getModConfigurationDirectory(), "anvils");
+        AnvilRecipeHandler.init(new File(configDir, "recipes"));
     }
 
     @EventHandler
     public static void init(FMLInitializationEvent event){
 
-        AnvilRecipeHandler.init(new File(configDir, "recipes"));
         final CreativeTabs TAB_ANV = new CreativeTabs(MiscLib.MOD_ID) {
             @Override
             public ItemStack getTabIconItem() {

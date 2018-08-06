@@ -12,6 +12,7 @@ import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStat
 
 public class AnvilRecipe {
 
+    public String recipeName;
     protected ItemStack anvilLeft;
     protected ItemStack anvilRight;
     protected ItemStack anvilOutput;
@@ -19,17 +20,18 @@ public class AnvilRecipe {
     public boolean showRecipe;
 
 
-    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost){
+    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, String name){
 
         anvilLeft = left;
         anvilRight = right;
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = true;
+        recipeName = name;
 
     }
 
-    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost){
+    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, String name){
 
         ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
         ItemEnchantedBook.addEnchantment(output, new EnchantmentData(out, enchantLevel));
@@ -39,10 +41,11 @@ public class AnvilRecipe {
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = true;
+        recipeName = name;
 
     }
 
-    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost){
+    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, String name){
 
         ItemStack left = new ItemStack(Items.ENCHANTED_BOOK, 1);
         ItemEnchantedBook.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
@@ -55,20 +58,22 @@ public class AnvilRecipe {
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = true;
+        recipeName = name;
 
     }
 
-    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, boolean show){
+    public AnvilRecipe(ItemStack left, ItemStack right, ItemStack output, int cost, boolean show, String name){
 
         anvilLeft = left;
         anvilRight = right;
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = show;
+        recipeName = name;
 
     }
 
-    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean show){
+    public AnvilRecipe(ItemStack left, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean show, String name){
 
         ItemStack output = new ItemStack(Items.ENCHANTED_BOOK, 1);
         ItemEnchantedBook.addEnchantment(output, new EnchantmentData(out, enchantLevel));
@@ -78,10 +83,11 @@ public class AnvilRecipe {
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = show;
+        recipeName = name;
 
     }
 
-    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean show){
+    public AnvilRecipe(Enchantment leftIn, int leftInLevel, ItemStack right, Enchantment out, int enchantLevel, int cost, boolean show, String name){
 
         ItemStack left = new ItemStack(Items.ENCHANTED_BOOK, 1);
         ItemEnchantedBook.addEnchantment(left, new EnchantmentData(leftIn, leftInLevel));
@@ -94,6 +100,7 @@ public class AnvilRecipe {
         anvilOutput = output;
         anvilLevelCost = cost;
         showRecipe = show;
+        recipeName = name;
 
     }
 
@@ -156,6 +163,16 @@ public class AnvilRecipe {
 
     public int getMaterialCost(){
         return anvilRight.copy().getCount();
+    }
+
+    public String getRecipeName(){
+
+        if(recipeName == null || recipeName == ""){
+            return anvilOutput.getDisplayName();
+        }
+
+        return recipeName;
+
     }
 
 
