@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.File;
 
-@Mod(modid = MiscLib.MOD_ID, name = MiscLib.MOD_NAME, version = MiscLib.MOD_VERSION)//, dependencies = MiscLib.MOD_DEPENDENCIES)
+@Mod(modid = MiscLib.MOD_ID, name = MiscLib.MOD_NAME, version = MiscLib.MOD_VERSION, dependencies = MiscLib.MOD_DEPENDENCIES)
 public class AnvilEnchantments {
 
 
