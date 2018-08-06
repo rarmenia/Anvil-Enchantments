@@ -91,7 +91,8 @@ public class GsonHelper {
             ResourceLocation registry = context.deserialize(json.getAsJsonObject().get("registry").getAsJsonObject(), ResourceLocation.class);
             NBTTagCompound nbtTagCompound = context.deserialize(json.getAsJsonObject().get("nbt"), NBTTagCompound.class);
             int itemCount = json.getAsJsonObject().get("count").getAsInt();
-            ItemStack stack = new ItemStack(ForgeRegistries.ITEMS.getValue(registry), itemCount);
+            int itemMeta = json.getAsJsonObject().get("meta").getAsInt();
+            ItemStack stack = new ItemStack(ForgeRegistries.ITEMS.getValue(registry), itemCount, itemMeta);
             stack.setTagCompound(nbtTagCompound);
 
             return stack;
@@ -103,6 +104,7 @@ public class GsonHelper {
             obj.add("registry", context.serialize(src.getItem().getRegistryName()));
             obj.add("nbt", context.serialize(src.getTagCompound()));
             obj.add("count", context.serialize(src.getCount()));
+            obj.add("meta", context.serialize(src.getMetadata()));
             return obj;
         }
 
