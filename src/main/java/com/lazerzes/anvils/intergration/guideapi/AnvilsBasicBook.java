@@ -9,15 +9,12 @@ import amerifrance.guideapi.api.impl.abstraction.CategoryAbstract;
 import amerifrance.guideapi.api.impl.abstraction.EntryAbstract;
 import amerifrance.guideapi.category.CategoryItemStack;
 import amerifrance.guideapi.entry.EntryItemStack;
-import amerifrance.guideapi.page.PageIRecipe;
-import amerifrance.guideapi.page.PageImage;
 import amerifrance.guideapi.page.PageItemStack;
+import com.lazerzes.anvils.AnvilEnchantments;
 import com.lazerzes.anvils.handler.AnvilRecipeHandler;
-import com.lazerzes.anvils.recipe.AnvilRecipe;
+import com.lazerzes.anvils.api.anvil.AnvilRecipe;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -40,7 +37,7 @@ public class AnvilsBasicBook implements IGuideBook {
         Map<ResourceLocation, EntryAbstract> entries = new LinkedHashMap<ResourceLocation, EntryAbstract>();
 
         int i = 0;
-        for (AnvilRecipe r : AnvilRecipeHandler.registeredRecipes){
+        for (AnvilRecipe r : AnvilEnchantments.anvilRegistry.getRuntimeRecipes()){
             List<IPage> page = new ArrayList<IPage>();
             page.add(new PageItemStack("Left", r.getAnvilLeft()));
             page.add(new PageItemStack("Right", r.getAnvilRight()));

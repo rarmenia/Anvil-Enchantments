@@ -1,4 +1,4 @@
-package com.lazerzes.anvils.gson;
+package com.lazerzes.anvils.util;
 
 import com.google.gson.*;
 import net.minecraft.item.ItemStack;
@@ -16,14 +16,10 @@ public class GsonHelper {
     public static abstract class Serializer<T> implements JsonDeserializer<T>, JsonSerializer<T>{
 
         @Override
-        public T deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context) throws JsonParseException{
-            return context.deserialize(jsonElement, getType());
-        }
+        public T deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context) throws JsonParseException{return context.deserialize(jsonElement, getType());}
 
         @Override
-        public JsonElement serialize(T t, Type type, JsonSerializationContext context){
-            return context.serialize(t);
-        }
+        public JsonElement serialize(T t, Type type, JsonSerializationContext context){return context.serialize(t);}
 
         public abstract Class<T> getType();
 
@@ -31,9 +27,7 @@ public class GsonHelper {
 
     public static final Serializer<ResourceLocation> RESOURCE_LOCATION_SERIALIZER = new Serializer<ResourceLocation>() {
         @Override
-        public Class<ResourceLocation> getType() {
-            return ResourceLocation.class;
-        }
+        public Class<ResourceLocation> getType() { return ResourceLocation.class; }
 
         @Override
         public ResourceLocation deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException{
@@ -55,9 +49,7 @@ public class GsonHelper {
 
     public static final Serializer<NBTTagCompound> NBT_SERIALIZER = new Serializer<NBTTagCompound>() {
         @Override
-        public Class<NBTTagCompound> getType() {
-            return NBTTagCompound.class;
-        }
+        public Class<NBTTagCompound> getType() { return NBTTagCompound.class; }
 
         @Override
         public NBTTagCompound deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException{
@@ -82,9 +74,7 @@ public class GsonHelper {
 
     public static final Serializer<ItemStack> ITEM_STACK_SERIALIZER = new Serializer<ItemStack>() {
         @Override
-        public Class<ItemStack> getType() {
-            return ItemStack.class;
-        }
+        public Class<ItemStack> getType() { return ItemStack.class; }
 
         @Override
         public ItemStack deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException{
@@ -109,7 +99,6 @@ public class GsonHelper {
         }
 
     };
-
 
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().registerTypeAdapter(RESOURCE_LOCATION_SERIALIZER.getType(), RESOURCE_LOCATION_SERIALIZER).registerTypeAdapter(NBT_SERIALIZER.getType(), NBT_SERIALIZER).registerTypeAdapter(ITEM_STACK_SERIALIZER.getType(), ITEM_STACK_SERIALIZER).create();
 

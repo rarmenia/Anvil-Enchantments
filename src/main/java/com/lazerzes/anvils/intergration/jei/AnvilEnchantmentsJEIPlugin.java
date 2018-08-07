@@ -1,7 +1,8 @@
 package com.lazerzes.anvils.intergration.jei;
 
+import com.lazerzes.anvils.AnvilEnchantments;
 import com.lazerzes.anvils.handler.AnvilRecipeHandler;
-import com.lazerzes.anvils.recipe.AnvilRecipe;
+import com.lazerzes.anvils.api.anvil.AnvilRecipe;
 import mezz.jei.api.*;
 
 
@@ -14,7 +15,7 @@ public class AnvilEnchantmentsJEIPlugin implements IModPlugin{
 
     @Override
     public void register(IModRegistry registry){
-        ArrayList<AnvilRecipe> internal = AnvilRecipeHandler.registeredRecipes;
+        ArrayList<AnvilRecipe> internal = AnvilEnchantments.anvilRegistry.getRuntimeRecipes();
 
         for(AnvilRecipe rec : internal){
             if(rec.showRecipe){

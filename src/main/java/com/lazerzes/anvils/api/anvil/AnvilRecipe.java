@@ -1,4 +1,4 @@
-package com.lazerzes.anvils.recipe;
+package com.lazerzes.anvils.api.anvil;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
@@ -6,9 +6,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.potion.PotionUtils;
-
-import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte1.other;
 
 public class AnvilRecipe {
 
