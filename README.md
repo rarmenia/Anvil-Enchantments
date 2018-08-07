@@ -8,3 +8,6 @@ https://minecraft.curseforge.com/projects/anvil-enchantments
 Made using Minecraft Forge http://files.minecraftforge.net/
 
 anvil-enchantments
+
+
+Want to Create a Plugin? Click [Here](https://github.com/lazerzes/Anvil-Enchantments/wiki/Creating-A-Plugin)
