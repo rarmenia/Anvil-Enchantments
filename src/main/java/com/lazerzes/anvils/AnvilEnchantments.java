@@ -50,6 +50,8 @@ public class AnvilEnchantments {
 
 
         final CreativeTabs TAB_ANV = new CreativeTabs(MiscLib.MOD_ID) {
+
+
             @Override
             public ItemStack getTabIconItem() {
                 return new ItemStack(Blocks.ANVIL, 1);

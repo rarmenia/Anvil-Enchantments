@@ -35,7 +35,7 @@ public class AnvilRecipeHandler {
             String mod_name = plugin.getPluginId();
             File child_dir = new File(base_dir, mod_name);
 
-            if(!child_dir.exists() && child_dir.mkdir()){
+            if(!child_dir.exists() && child_dir.mkdirs()){
                 AnvilRegistry tmp = new AnvilRegistry();
                 plugin.registerRecipes(tmp);
                 for(Pair<String, AnvilRecipe> pair : tmp.getFileRecipes()){
