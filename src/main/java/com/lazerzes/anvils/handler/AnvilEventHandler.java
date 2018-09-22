@@ -27,7 +27,7 @@ public class AnvilEventHandler {
 
 
         if(AnvilConfig.general.enableEnchantmentStripping){
-            //TODO :: AnvilEnchantments - Feature Enchantment Stripping (Harder than it looks) Issue #19
+            //TODO :: AnvilEnchantments - Feature Enchantment Stripping (Harder than it looks) Issue #19(https://github.com/lazerzes/Anvil-Enchantments/issues/19)
         }
 
         for(AnvilRecipe r : AnvilEnchantments.anvilRegistry.getRuntimeRecipes()){
