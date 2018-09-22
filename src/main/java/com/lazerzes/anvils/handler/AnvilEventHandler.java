@@ -25,6 +25,11 @@ public class AnvilEventHandler {
 
         AnvilRecipe result = null;
 
+
+        if(AnvilConfig.general.enableEnchantmentStripping){
+            //TODO :: AnvilEnchantments - Feature Enchantment Stripping (Harder than it looks) Issue #19
+        }
+
         for(AnvilRecipe r : AnvilEnchantments.anvilRegistry.getRuntimeRecipes()){
 
             if(r.check(event.getLeft(), event.getRight())){
@@ -33,48 +38,10 @@ public class AnvilEventHandler {
             }
 
         }
-
-
-        if(result == null && AnvilConfig.general.enableEnchantmentStripping){
-
-            if (event.getLeft().isItemEnchanted() && event.getRight().getItem() == Items.WRITABLE_BOOK){
-
-
-                ArrayList<EnchantmentData> enchantmentDatas = new ArrayList<>();
-                NBTTagList tagList = event.getLeft().getEnchantmentTagList();
-                for (int i = 0; i < tagList.tagCount(); i++){
-
-                    NBTTagCompound tagCompound = tagList.getCompoundTagAt(i);
-                    int id = tagCompound.getShort("id");
-                    int lvl = tagCompound.getShort("lvl");
-
-                    Enchantment temp = Enchantment.getEnchantmentByID(id);
-
-                    if(temp != null) {
-                        enchantmentDatas.add(new EnchantmentData(temp, lvl));
-                    }
-
-                }
-
-                ItemStack enchantedBook = new ItemStack(Items.ENCHANTED_BOOK, 1);
-                for(EnchantmentData ench : enchantmentDatas){
-
-                    ItemEnchantedBook.addEnchantment(enchantedBook, ench);
-
-                }
-
-                event.setCost(AnvilConfig.value.costEnchantmentStripping);
-                event.setOutput(enchantedBook);
-
-
-            }
-
-        }else if(result != null){
-
+        if(result != null) {
             event.setMaterialCost(result.getMaterialCost());
             event.setCost(result.getAnvilLevelCost());
             event.setOutput(result.getAnvilOutput());
-
         }
 
     }
