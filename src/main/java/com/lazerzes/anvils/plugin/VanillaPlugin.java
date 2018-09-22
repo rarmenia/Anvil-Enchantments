@@ -34,7 +34,7 @@ public class VanillaPlugin implements IModPlugin{
         anvilRegistry.registerConfigRecipe(Pair.of("fire_aspect_1", new AnvilRecipe(Enchantments.SHARPNESS, 1, new ItemStack(Items.BLAZE_POWDER, 3), Enchantments.FIRE_ASPECT, 1, 4, "Fire Aspect 1")));
         anvilRegistry.registerConfigRecipe(Pair.of("fire_protection_1", new AnvilRecipe(Enchantments.PROTECTION, 1, new ItemStack(Items.MAGMA_CREAM, 3), Enchantments.FIRE_PROTECTION, 1, 3, "Fire Protection 1")));
         anvilRegistry.registerConfigRecipe(Pair.of("flame_1", new AnvilRecipe(Enchantments.FIRE_ASPECT, 1, new ItemStack(Items.ARROW, 4), Enchantments.FLAME, 1, 3, "Flame 1")));
-        anvilRegistry.registerConfigRecipe(Pair.of("fortune_1", new AnvilRecipe(new ItemStack(Items.BOOK, 1), new ItemStack(Items.DYE, 16, EnumDyeColor.BLUE.getDyeDamage()), Enchantments.FORTUNE, 1, 9, "Fortune 1")));
+        anvilRegistry.registerConfigRecipe(Pair.of("fortune_1", new AnvilRecipe(new ItemStack(Items.BOOK, 1), new ItemStack(Blocks.LAPIS_BLOCK, 2), Enchantments.FORTUNE, 1, 9, "Fortune 1")));
         anvilRegistry.registerConfigRecipe(Pair.of("frost_walker_1", new AnvilRecipe(new ItemStack(Items.BOOK, 1), new ItemStack(Blocks.ICE,4), Enchantments.FROST_WALKER, 1, 7, "Frost Walker 1")));
         anvilRegistry.registerConfigRecipe(Pair.of("infinity", new AnvilRecipe(new ItemStack(Items.BOOK, 1), new ItemStack(Items.ARROW, 64), Enchantments.INFINITY, 1, 13, "Infinity")));
         anvilRegistry.registerConfigRecipe(Pair.of("knockback_1", new AnvilRecipe(new ItemStack(Items.BOOK, 1), new ItemStack(Blocks.PISTON, 2), Enchantments.KNOCKBACK, 1, 4, "Knockback 1")));
