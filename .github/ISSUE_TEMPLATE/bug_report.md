@@ -22,6 +22,7 @@ Local files with changes that are associated with the issue.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
+ - Java Version[e.g. Java 7]
  - Minecraft Version[e.g. 1.12.2]
  - Forge Version[e.g. 14.23.4.2759]
  - Mod Version [e.g. 2.0.3]
