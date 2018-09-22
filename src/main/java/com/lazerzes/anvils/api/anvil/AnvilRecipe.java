@@ -108,9 +108,6 @@ public class AnvilRecipe {
         //Check if stack requirement is met.
         if( !(left.getCount() == anvilLeft.getCount() && right.getCount() >= anvilRight.getCount())){ return false; }
 
-        //Check if item names are same.
-        if( !(left.getItem().getUnlocalizedName().equals(anvilLeft.getItem().getUnlocalizedName()) && right.getItem().getUnlocalizedName().equals(anvilRight.getUnlocalizedName()))){ return false; }
-
         //Check if item Metadata is the same.
         if( !(left.getMetadata() == anvilLeft.getMetadata() && right.getMetadata() == anvilRight.getMetadata()))
 
@@ -131,7 +128,9 @@ public class AnvilRecipe {
         if(right.getItem() instanceof ItemEnchantedBook){
 
             NBTTagList enchListA = ItemEnchantedBook.getEnchantments(right), enchListB = ItemEnchantedBook.getEnchantments(anvilRight);
-            return enchListA.equals(enchListB);
+            if(!enchListA.equals(enchListB)){
+                return false;
+            }
 
         }
 

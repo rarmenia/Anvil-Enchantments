@@ -29,6 +29,7 @@ public class AnvilEventHandler {
 
             if(r.check(event.getLeft(), event.getRight())){
                 result = r;
+                break;
             }
 
         }

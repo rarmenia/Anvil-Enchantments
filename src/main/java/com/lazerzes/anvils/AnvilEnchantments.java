@@ -39,15 +39,15 @@ public class AnvilEnchantments {
         modPlugins = AnnotationHelper.getPlugins(asmDataTable);
         AnnotationHelper.ensureVanilla(modPlugins);
 
-        anvilRegistry = new AnvilRegistry();
-        AnvilRecipeHandler.initPlugins(new File(configDir, "recipes"), modPlugins, anvilRegistry);
+
 
     }
 
     @EventHandler
     public static void init(FMLInitializationEvent event){
 
-
+        anvilRegistry = new AnvilRegistry();
+        AnvilRecipeHandler.initPlugins(new File(configDir, "recipes"), modPlugins, anvilRegistry);
 
         final CreativeTabs TAB_ANV = new CreativeTabs(MiscLib.MOD_ID) {
 

@@ -57,7 +57,6 @@ public class AnvilRecipeHandler {
         //Gather Recipes from Files
         String[] child_dirs = base_dir.list(FileFilterUtils.directoryFileFilter());
         for(String child : child_dirs){
-
             File child_dir = new File(base_dir, child);
             File[] files = child_dir.listFiles((FileFilter) FileFilterUtils.suffixFileFilter(".json"));
             if(files != null){
