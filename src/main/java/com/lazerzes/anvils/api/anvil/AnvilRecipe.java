@@ -108,6 +108,8 @@ public class AnvilRecipe {
         //Check if stack requirement is met.
         if( !(left.getCount() == anvilLeft.getCount() && right.getCount() >= anvilRight.getCount())){ return false; }
 
+        if( !(left.getItem().equals(anvilLeft.getItem()) && right.getItem().equals(anvilRight.getItem()))){return false;}
+
         //Check if item Metadata is the same.
         if( !(left.getMetadata() == anvilLeft.getMetadata() && right.getMetadata() == anvilRight.getMetadata()))
 
