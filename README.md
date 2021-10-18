@@ -11,3 +11,7 @@ anvil-enchantments
 
 
 Want to Create a Plugin? Click [Here](https://github.com/lazerzes/Anvil-Enchantments/wiki/Creating-A-Plugin)
+
+
+
+This mod was made redundant by Datapacks and therefore will no longer be updated. Thanks for the support.
